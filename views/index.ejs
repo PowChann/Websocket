@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time Collaborative Cursor Tracking</title>
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+  <!-- Login Modal -->
+  <div class="login-overlay" id="login-modal">
+    <div class="login-card">
+      <h2>👋 Join Session</h2>
+      <input type="text" id="username-input" placeholder="Enter your username...">
+      <button id="join-btn">Start Collaborating</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Main Area: Cursor Tracking -->
+    <div class="cursor-tracking-panel" id="cursor-area">
+      <div class="cursor-tracking-header">
+        <h2>Demo Realtime</h2>
+      </div>
+      <!-- Cursors will be injected here -->
+      <div class="cursor-tracking-area"></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar-panel">
+
+      <!-- Status Header -->
+      <div class="sidebar-header">
+        <h3>
+          <span style="color: #4ade80;">●</span>
+          Online: <span id="online-count">0</span>
+        </h3>
+      </div>
+
+      <!-- User Info & List -->
+      <div class="user-section">
+
+        <div class="my-id-section">
+          <h4>My ID</h4>
+          <div class="my-id-display" id="my-profile" style="display: none;">
+            <div class="avatar" id="my-avatar"></div>
+            <div id="my-username" style="font-weight: 600;"></div>
+          </div>
+        </div>
+
+        <h4>Active Users ID</h4>
+        <div class="avatar-grid" id="users-grid">
+          <!-- User Avatars go here -->
+        </div>
+      </div>
+
+      <!-- Chat -->
+      <div class="chat-container">
+        <div
+          style="padding: 10px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; font-size: 12px; font-weight: bold; color: #64748b;">
+          CHAT LOG
+        </div>
+        <ul id="messages"></ul>
+        <form id="chat-form">
+          <input type="text" id="message-input" placeholder="Type a message..." autocomplete="off">
+          <button type="submit">➤</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <!-- Client Logic -->
+  <script src="/js/client.js"></script>
+</body>
+
+</html>
